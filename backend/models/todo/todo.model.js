@@ -1,7 +1,12 @@
 import mongoose from "mongoose";
-const subTodoSchema = new mongoose.Schema(
+const todoSchema = new mongoose.Schema(
   {
     title: {
+      type: String,
+      required: true,
+      min: [5, "titile should be atleast of 5 characters"],
+    },
+    content: {
       type: String,
       required: true,
     },
@@ -14,6 +19,9 @@ const subTodoSchema = new mongoose.Schema(
       ref: "User",
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
-export const SubTodo = mongoose.model("SubTodo", subTodoSchema);
+
+export const Todo = new mongoose.model("Todo", todoSchema);
