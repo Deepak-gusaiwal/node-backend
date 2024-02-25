@@ -6,7 +6,6 @@ const App = () => {
   const fetchData = async () => {
     try {
       const {data} = await axios.get("/api/");
-      console.log('response is',data)
       setData(data);
     } catch (error) {
       alert("failed to fetch data");
